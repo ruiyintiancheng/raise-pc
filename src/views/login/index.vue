@@ -1,8 +1,8 @@
 /*
  * @Author: wk
  * @Date: 2020-07-07 16:24:55 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2021-03-15 14:33:53
+ * @Last Modified by: lk
+ * @Last Modified time: 2021-10-31 10:31:03
   * @Description:  登录
  */
 <template>
@@ -15,13 +15,13 @@
           </div>
           <el-form  ref="form" :model="form" class="login-form" @submit.native.prevent>
             <el-form-item >
-              <el-input v-model="form.loginName" placeholder="请输入手机号或邮箱" clearable :class="{borderG:nameColor===1,borderR:nameColor===2}" @focus="focusColor('nameColor')" @blur="blurColor('nameColor')"></el-input>
+              <el-input v-model="form.loginName" placeholder="随便填" clearable :class="{borderG:nameColor===1,borderR:nameColor===2}" @focus="focusColor('nameColor')" @blur="blurColor('nameColor')"></el-input>
             </el-form-item>
               <el-form-item >
-              <el-input type="password" v-model="form.loginPasswd" placeholder="请输入密码" clearable :class="{borderG:passwdColor===1,borderR:passwdColor===2}" @focus="focusColor('passwdColor')" @blur="blurColor('passwdColor')"></el-input>
+              <el-input type="password" v-model="form.loginPasswd" placeholder="随便填" clearable :class="{borderG:passwdColor===1,borderR:passwdColor===2}" @focus="focusColor('passwdColor')" @blur="blurColor('passwdColor')"></el-input>
             </el-form-item>
              <el-form-item >
-              <el-input  @keyup.enter.native="handleLogin" v-model="form.captcha" placeholder="请输入验证码" clearable :class="{borderG:captchaColor===1,borderR:captchaColor===2}" @focus="focusColor('captchaColor')"  @blur="blurColor('captchaColor')"></el-input>
+              <el-input  @keyup.enter.native="handleLogin" v-model="form.captcha" placeholder="随便填" clearable :class="{borderG:captchaColor===1,borderR:captchaColor===2}" @focus="focusColor('captchaColor')"  @blur="blurColor('captchaColor')"></el-input>
               <a class="login-captcha"  @click="handleCaptcha">
                 <img :src="verifyCode" />
               </a>

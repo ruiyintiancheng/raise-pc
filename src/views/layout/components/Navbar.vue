@@ -1,8 +1,8 @@
 /*
  * @Author: lk 
  * @Date: 2018-09-21 14:54:24 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2021-07-13 17:47:03
+ * @Last Modified by: lk
+ * @Last Modified time: 2021-10-31 11:18:02
  * @Description:  
  */
 <template>
@@ -206,7 +206,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { openWebSocket, closeWebSocket } from '@/utils/websocket'
+// import { openWebSocket, closeWebSocket } from '@/utils/websocket'
 import { baseRequest } from '../../../api/base'
 import { getToken } from '@/utils/auth'
 import { IsPC } from '@/utils'
@@ -215,34 +215,34 @@ import { IsPC } from '@/utils'
 // import logo from '@/assets/logo/logo.png'
 export default {
   created() {
-    this.getNewsCount().then(_ => {
-      openWebSocket(function(result) {
-        console.log(result)
-        result = JSON.parse(result)
-        if (typeof (result) !== 'object') return
-        const h = this.$createElement
-        const notify = this.$notify({
-          title: result.msgTitle ? result.msgTitle : '消息',
-          dangerouslyUseHTMLString: true,
-          message: h('span', {// 内容 可点击弹框
-            on: {
-              click: _ => {
-                // this.openNotify(result.msgId)
-              }
-            }
-          }, result.msgContent),
-          duration: 0, // 显示时间, 毫秒。设为 0 则不会自动关闭
-          offset: 250, // 位置
-          showClose: true, // 是否展示可关闭按钮
-          iconClass: 'el-icon-bell' // 自定义图标的类名，会覆盖 type
-        })
-        this.notifyList.push(notify)
-        this.getNewsCount()
-      }.bind(this))
-      if (this.newsCount > 0) {
-        // this.getNotice()
-      }
-    })
+    // this.getNewsCount().then(_ => {
+    //   openWebSocket(function(result) {
+    //     console.log(result)
+    //     result = JSON.parse(result)
+    //     if (typeof (result) !== 'object') return
+    //     const h = this.$createElement
+    //     const notify = this.$notify({
+    //       title: result.msgTitle ? result.msgTitle : '消息',
+    //       dangerouslyUseHTMLString: true,
+    //       message: h('span', {// 内容 可点击弹框
+    //         on: {
+    //           click: _ => {
+    //             // this.openNotify(result.msgId)
+    //           }
+    //         }
+    //       }, result.msgContent),
+    //       duration: 0, // 显示时间, 毫秒。设为 0 则不会自动关闭
+    //       offset: 250, // 位置
+    //       showClose: true, // 是否展示可关闭按钮
+    //       iconClass: 'el-icon-bell' // 自定义图标的类名，会覆盖 type
+    //     })
+    //     this.notifyList.push(notify)
+    //     this.getNewsCount()
+    //   }.bind(this))
+    //   if (this.newsCount > 0) {
+    //     // this.getNotice()
+    //   }
+    // })
     // const h = this.$createElement
     // const notify = this.$notify({
     //   title: '消息',
@@ -280,14 +280,14 @@ export default {
       // })
     }
   },
-  destroyed() {
-    closeWebSocket()
-    for (const notify of this.notifyList) {
-      if (notify) {
-        notify.close()
-      }
-    }
-  },
+  // destroyed() {
+  //   closeWebSocket()
+  //   for (const notify of this.notifyList) {
+  //     if (notify) {
+  //       notify.close()
+  //     }
+  //   }
+  // },
   data() {
     return {
       tableData: [],
