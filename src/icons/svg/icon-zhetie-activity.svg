@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00afff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-zhetie-activity" class="cls-1" d="M2326.88,566h12.25a0.857,0.857,0,1,1,0,1.714h-12.25A0.857,0.857,0,1,1,2326.88,566Zm0,5.143h12.25a0.857,0.857,0,1,1,0,1.714h-12.25A0.857,0.857,0,1,1,2326.88,571.143Zm0,5.143h12.25a0.857,0.857,0,1,1,0,1.714h-12.25A0.857,0.857,0,1,1,2326.88,576.286Z" transform="translate(-2326 -566)"/>
+</svg>

@@ -1,0 +1,37 @@
+{
+  "id": "1934307",
+  "name": "cai'ji",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10232762",
+      "name": "报名",
+      "font_class": "baoming",
+      "unicode": "e78a",
+      "unicode_decimal": 59274
+    },
+    {
+      "icon_id": "1903818",
+      "name": "web__获取行情",
+      "font_class": "web__huoquhangqing",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "15112801",
+      "name": "权益",
+      "font_class": "quanyi",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "16286963",
+      "name": "备注",
+      "font_class": "beizhu",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    }
+  ]
+}

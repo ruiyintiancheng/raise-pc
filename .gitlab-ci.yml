@@ -1,0 +1,89 @@
+include:
+  - project: 'devops1/ci_template'
+    file: '/gitlab-ci-web-sonar.yml'
+
+variables:
+  mainVer: 1
+  start: 1571788800
+  path: registry-dev.ekuaibao.com/tmc/
+  PROJECT: jdmanagement
+  CI_WEBHOOK: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d8098040-8915-479c-a4ef-be62d5a98743
+
+stages:
+  - build
+  - check_deploy
+
+cache:
+  paths:
+    - node_modules
+
+feature_deploy:
+  stage: build
+  image: registry.ekuaibao.com/tools/docker:18.09.7-dind
+  before_script:
+    - end=`date +%s`
+    - let "days=($end-$start)/86400"
+    - tag=dev-$mainVer.$(($days/7)).$(($days%7)).$CI_COMMIT_SHORT_SHA
+
+    - docker run --rm byrnedo/alpine-curl ${CI_WEBHOOK} -H 'Content-Type:application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"京东集采管理系统 开始部署开发环境。版本：${tag}\"}}"
+  script:
+    - npm config list
+
+    - npm install
+    - npm i -D
+    - npm run build
+
+    - docker build -t $path$PROJECT:$tag .
+    - docker push $path$PROJECT:$tag
+
+    - docker pull registry.ekuaibao.com/tools/tmc-feature-jdmall-kubernetes-deploy
+    - docker run --rm -v /root/.gitlab-runner/.kube:/var/run/docker.sock -e PROJECT_NAME=jdmanagement -e NAMESPACE=${NAMESPACE} -e BUILD_SHA=${tag} registry.ekuaibao.com/tools/tmc-feature-jdmall-kubernetes-deploy ./apply.sh
+    - touch $CI_PROJECT_DIR/success
+  after_script:
+    - if [ -e success ];then MESSAGE=成功; else MESSAGE=失败; fi
+    - docker run --rm byrnedo/alpine-curl ${CI_WEBHOOK} -H 'Content-Type:application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"企业集采管理系统 开发环境部署：${MESSAGE}\"}}"
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - docker
+  only:
+    - /^master$/i
+  when: manual
+
+production_deploy:
+  stage: build
+  image: registry.ekuaibao.com/tools/docker:18.09.7-dind
+  before_script:
+    - end=`date +%s`
+    - let "days=($end-$start)/86400"
+    - tag=$mainVer.$(($days/7)).$(($days%7)).$CI_COMMIT_SHORT_SHA
+
+    - docker run --rm byrnedo/alpine-curl ${CI_WEBHOOK} -H 'Content-Type:application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"京东集采管理系统 开始部署开发环境。版本：${tag}\"}}"
+  script:
+    - npm config list
+
+    - npm install
+    - npm i -D
+    - npm run build
+
+    - docker build -t $path$PROJECT:$tag .
+    - docker push $path$PROJECT:$tag
+
+    - docker pull registry.ekuaibao.com/tools/tmc-feature-jdmall-kubernetes-deploy
+    - docker run --rm -v /root/.gitlab-runner/.kube:/var/run/docker.sock -e PROJECT_NAME=jdmanagement -e NAMESPACE=${NAMESPACE} -e BUILD_SHA=${tag} registry.ekuaibao.com/tools/tmc-feature-jdmall-kubernetes-deploy ./apply.sh
+    - touch $CI_PROJECT_DIR/success
+  after_script:
+    - if [ -e success ];then MESSAGE=成功; else MESSAGE=失败; fi
+    - docker run --rm byrnedo/alpine-curl ${CI_WEBHOOK} -H 'Content-Type:application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"企业集采管理系统 开发环境部署：${MESSAGE}\"}}"
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - docker
+  only:
+    - /^master$/i
+  when: manual
+
+
+

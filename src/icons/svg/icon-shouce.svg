@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-shouce" class="cls-1" d="M310.023,106A3.016,3.016,0,0,1,307,102.988V91.023A3.016,3.016,0,0,1,310.012,88H322v12H310.035a1.541,1.541,0,0,0-1.535,1.535v1.419a1.542,1.542,0,0,0,1.535,1.535H323.5V89.5H325V106H310.023ZM310,101.5h12V103H310v-1.5Z" transform="translate(-307 -88)"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.437" height="31.21" viewBox="0 0 25.437 31.21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-play" class="cls-1" d="M426.962,2284.71l-17.325,10.93c-3.093,2.07-5.775.62-5.775-2.88v-23.52c0-3.71,2.475-4.95,5.775-2.88l17.325,10.93C430.056,2279.35,430.056,2282.65,426.962,2284.71Z" transform="translate(-403.875 -2265.38)"/>
+</svg>

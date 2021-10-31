@@ -1,0 +1,149 @@
+.door-box{
+    position: relative;
+    padding:30px;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: #222222;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    border: solid 1px #dddddd;
+    overflow: auto;
+    -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+   padding-right: 0;
+   position: relative;
+   .watermark{
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform:rotate(-23deg) translateX(-50%);
+    transform-origin: 0 0;
+    width: 503px;
+    z-index: 1;
+    opacity: 0.1;
+  }
+  .water-back{
+      position: relative;
+      .watermark-auto{
+          height: 50%;
+          width: auto;
+          top: 50%;
+          left: 50%;
+          transform:rotate(-23deg) translateX(-50%) translateY(-50%);
+      }
+  }
+  .watermark-2{
+    top: 1220px;
+  }
+  .watermark-3{
+    top: 2220px;
+  }
+  .watermark-4{
+    top: 3220px;
+  }
+  .watermark-5{
+    top: 4220px;
+  }
+  .watermark-6{
+    top: 5220px;
+  }
+   .text-b{
+       font-weight: bold;
+   }
+    // 段落文字
+    .door-text-title{
+        text-align: center;
+        font-size: 24px;
+        color: #222222;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .door-text-duan{
+        font-size: 16px;
+        color: #222222;
+        line-height: 32px;
+        &.door-intent15{
+            text-indent: 1.5em;
+        }
+        &.door-upblank{
+            margin-top: 20px;
+        }
+    }
+    // 问答题
+    .door-qa-box{
+        margin-top: 20px;
+        &.no-margin-t{
+            margin-top: 0;
+        }
+        .door-question{}
+        .door-answer{
+            margin-top: 10px;
+            width: calc(100% - 80px);
+        }
+        .door-btn-save{
+            margin-left: 10px;
+        }
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+    }
+    // 表格
+    .door-table-box{
+        margin-top: 20px;
+        .door-table{
+            margin-top: 10px;
+        }
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+    }
+    // 图例 上传图
+    .door-draw-box{
+        margin-top: 20px;
+        min-height: 50px;
+        width: 100%;
+        position: relative;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+        .door-draw-label{
+            font-weight: bold;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .door-draw-img{
+            // float: left;
+            width: 700px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 33px;
+            img{
+                width: 100%;
+                display: block;
+            }
+            .door-draw-btn{
+                position: absolute;
+                right: -100px;
+                bottom: 0px;
+            }
+        }
+    }
+    //文字和上传图结合
+    .door-tf-box{
+        margin-top: 0px;
+        width: 100%;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+        .door-tf-item{
+            width: 31%;
+            float: left;
+            margin-right: 2%;
+            margin-top: 20px;
+        }
+    }
+}

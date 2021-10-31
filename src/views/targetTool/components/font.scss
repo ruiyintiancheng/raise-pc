@@ -1,0 +1,95 @@
+.txt-black {
+  color: #222222
+}
+.txt-reg-16{
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+}
+.txt-reg-14{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+.txt-sem-16{
+  font-family: PingFangSC-Semibold;
+  font-size: 16px;
+}
+
+.txt-white {
+  color: #ffffff;
+  font-family: PingFangSC-Semibold;
+  font-size: 16px;
+}
+
+.txt-white-reg {
+  color: #222222;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+}
+.txt-white-reg-16 {
+  color: #ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+}
+
+.txt-blue {
+  color: #00afff;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+
+.txt-blue-reg-16 {
+  color: #00afff;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+}
+
+.bg-blue {
+  background-color: #e5f7ff;
+  color: #00afff;
+  font-family: PingFangSC-Regular;
+}
+
+
+.line-dashed {
+  display: block;
+  height: 0;
+  border-top: 1px dashed #aaaaaa;
+}
+
+.btn {
+  user-select: none;
+  cursor: pointer;
+}
+
+.title-line {
+  display: block;
+  height: 0;
+  margin: 0 -24px;
+  border-top: 1px solid #cccccc;
+}
+
+.tb-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: solid 1px #dddddd;
+  .tb-title {
+    height: 44px;
+    background-color: #fafafa;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid #dddddd;
+    line-height: 44px;
+    padding-left: 10px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    user-select: none;
+  }
+}
+
+.child-center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
